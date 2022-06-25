@@ -3,10 +3,8 @@ package com.jhonny.coffeewebflux.controller;
 import com.jhonny.coffeewebflux.model.Cafe;
 import com.jhonny.coffeewebflux.model.dto.CafeDTO;
 import com.jhonny.coffeewebflux.service.ICafeService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -25,4 +23,13 @@ public class CafeController {
         return iCafeService.crearCafe(cafeDTO);
     }
 
+    @GetMapping("/buscar/{id}")
+    public Mono<CafeDTO> buscarCafeId(@PathVariable  int id){
+        return iCafeService.buscarCafeId(id);
+    }
+
+    @GetMapping("/listar")
+    public Flux<CafeDTO> listarTodos(){
+        return iCafeService.listarTodos();
+    }
 }
