@@ -12,4 +12,5 @@ public interface CafeMapper {
     public Cafe convertirDTOACafe(CafeDTO cafeDTO);
 
     public CafeDTO convertirCafeADTO(Cafe cafe);
+
 }
